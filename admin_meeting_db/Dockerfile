@@ -1,0 +1,7 @@
+FROM postgres:14.1
+
+
+ENV POSTGRES_DB=unmeet_adminmeeting_db
+ENV POSTGRES_USER=unmeet
+ENV POSTGRES_PASSWORD=unmeet2021
+EXPOSE 5432
