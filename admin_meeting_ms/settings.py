@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3lmuzx-s_!vk#f#nt0q06755&$(hqwe!yd*qi3lmg*j*krolad
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # SECRET KEY FOR HASHID
 HASHID_FIELD_SALT = 'jashdlkahñhfñjahdfjkñhañkfhañkjdsh'
@@ -88,7 +88,8 @@ DATABASES = {
         'USER': 'unmeet',
         'PASSWORD': 'unmeet2021',
         'PORT': '5432',
-        'HOST': 'host.docker.internal'
+        ## For windows is a must to define a Host due to lack of Unix sockets 
+        'HOST': 'adminmeeting_db'
     }
 }
 

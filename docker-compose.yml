@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  adminmeeting_db:
+    build: .\admin_meeting_db\
+    environment:
+      PORT: '5432'
+  adminmeeting-ms:
+    build: .
+    environment:
+      DB_HOST: 'adminmeeting_db'
+      DB_PORT: '5432' 
+      DB_USER: 'unmeet' 
+      DB_PASSWORD: 'unmeet2021'
+      DB_NAME: 'unmeet_adminmeeting_db' 
+      URL: '0.0.0.0:4000'
+      PORT: '4000'
+    ports:
+      - '4000:4000'
+  
+
+networks: 
+  default: 
+      name: meet-network
