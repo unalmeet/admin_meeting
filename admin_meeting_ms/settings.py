@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -84,12 +84,12 @@ WSGI_APPLICATION = 'admin_meeting_ms.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'unmeet_adminmeeting_db',
-        'USER': 'unmeet',
-        'PASSWORD': 'unmeet2021',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'PORT': os.environ.get('DB_PORT'),
         ## For windows is a must to define a Host due to lack of Unix sockets 
-        'HOST': 'adminmeeting_db'
+        'HOST': os.environ.get('DB_HOST')
     }
 }
 
